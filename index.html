@@ -44,9 +44,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100dvh;
-    padding: 24px 16px 40px;
+    padding: env(safe-area-inset-top, 32px) 16px 48px;
+    padding-top: max(32px, env(safe-area-inset-top, 32px));
   }
 
   body::before {
@@ -106,28 +107,6 @@
     padding: 3px 8px; border-radius: 99px; margin-top: 5px;
     letter-spacing: 0.2px;
   }
-
-  /* Авто-редирект */
-  .auto-block {
-    display: none; align-items: center; gap: 10px;
-    background: #F1F8E9; border: 1px solid #AED581;
-    border-radius: 12px; padding: 12px 14px;
-    margin-bottom: 18px;
-    font-size: 13px; font-weight: 600; color: #33691E;
-  }
-  .auto-block.show { display: flex; }
-
-  .auto-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #7CB342; flex-shrink: 0;
-    animation: blink 1s infinite;
-  }
-  @keyframes blink {
-    0%,100% { opacity:1; transform:scale(1); }
-    50%      { opacity:.4; transform:scale(1.4); }
-  }
-
-  .auto-inner { flex:1; }
 
   .progress-bar {
     height: 3px; background: #DCEDC8;
@@ -237,10 +216,7 @@
         </div>
       </div>
     </div>
-    <div class="auto-inner">
-        <span id="autoText">Определяем устройство…</span>
-        <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
-      </div>
+    </div>
     </div>
 
     
